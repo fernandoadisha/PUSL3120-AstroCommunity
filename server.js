@@ -11,6 +11,11 @@ mongoose.set('strictQuery', false); // hiding a warning
 
 app.use(express.json());
 
+// Inititating connection with MongoDB
+mongoose.connect(mongoUrl, () => {
+    console.log("Connected to DB");
+}), e => console.error(e);
+
 let port = 9000;
 
 app.get("/", (request,responce) => {

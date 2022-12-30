@@ -1,22 +1,48 @@
 const express = require('express');
 const { model } = require('mongoose');
 const router = express.Router();
-
-const Item = require('../Schemas/itemSchema');
-
-// connecting to mongoose
-const mongoose = require('mongoose');
 const { application } = require('express');
-const mongoURL = "mongodb://0.0.0.0:27017/testdb";
 
-// Inititating connection with MongoDB
-mongoose.connect(mongoURL, () => {
-    console.log("Connected to DB");
-}), e => console.error(e);
+const Item = require('../Model/itemSchema');
 
 router.get("/", (req,res) => {
     res.send("You are in items section");
-    
+
+});
+
+// making an dynamic route, ":id" in here takes user assigned value
+// below code the user is being found using the the user id
+router.get('/:id', async(req,res) => {
+    try {
+        let oneItem = await Item.findById(req.params.id);
+        res.json(oneItem);
+    } catch(e) {
+        console.log(e.message);
+    }
+
+});
+
+// removing user (not tested)
+router.delete('/:id', async(req,res) => {
+    try {
+        let oneItem = await Item.findById(req.params.id);
+        await oneItem.delete();
+    } catch(e) {
+        console.log(e.message);
+    }
+
+});
+
+// updating just one JSON value (Not tested)
+router.patch('/:id', async(req,res) => {
+    try {
+        let oneItem = await Item.findById(req.params.id);
+        oneItem.itemStock = req.body.itemStock;
+        const newStock = await oneItem.save();
+        res.json(oneItem);
+    } catch(e) {
+        console.log(e.message);
+    }
 });
 
 router.get("/new", async(req,res) => {
