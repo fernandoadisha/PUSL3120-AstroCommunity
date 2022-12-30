@@ -9,6 +9,8 @@ const cors = require("cors");
 // const bodyparser = require("body-parse"); // ** maybe not really required **
 mongoose.set('strictQuery', false); // hiding a warning
 
+app.use(express.json());
+
 let port = 9000;
 
 app.get("/", (request,responce) => {
