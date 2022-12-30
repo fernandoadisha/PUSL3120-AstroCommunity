@@ -26,6 +26,10 @@ app.get("/", (request,responce) => {
 const itemRouter = require('./routes/items');
 app.use('/items', itemRouter);
 
+// connecting user touter to server.js
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
 
 // initiating the app
 app.listen(port, () => {
