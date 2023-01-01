@@ -4,7 +4,8 @@ const itemSchema = new mongoose.Schema({
     itemID: Number,
     itemName : String,
     itemPrice: Number,
-    itemStock: Number
+    itemStock: Number,
+    itemTag: Array
 });
 
 module.exports = mongoose.model("items", itemSchema);
