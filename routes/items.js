@@ -5,16 +5,25 @@ const { application } = require('express');
 
 const Item = require('../Model/itemSchema');
 
-router.get("/", (req,res) => {
-    res.send("You are in items section");
-
-});
 
 // making an dynamic route, ":id" in here takes user assigned value
-// below code the user is being found using the the user id
+// below code the item is being found using the the item
+/*
 router.get('/:id', async(req,res) => {
     try {
         let oneItem = await Item.findById(req.params.id);
+        res.json(oneItem);
+    } catch(e) {
+        console.log(e.message);
+    }
+
+});
+*/
+
+// 
+router.get('/:id', async(req,res) => {
+    try {
+        let oneItem = await Item.findByTag(req.params.id);
         res.json(oneItem);
     } catch(e) {
         console.log(e.message);
@@ -45,7 +54,8 @@ router.patch('/:id', async(req,res) => {
     }
 });
 
-router.get("/new", async(req,res) => {
+//getting all the items
+router.get("/", async(req,res) => {
     try {
         let getItem = await Item.find();
         res.json(getItem);
@@ -55,7 +65,8 @@ router.get("/new", async(req,res) => {
 
 });
 
-router.post("/new", async(req,res) => {
+// saving items
+router.post("/", async(req,res) => {
 
     try {
         // making the schema by extracting values from the body
@@ -64,7 +75,8 @@ router.post("/new", async(req,res) => {
             itemID: req.body.itemID,
             itemName: req.body.itemName,
             itemPrice: req.body.itemPrice,
-            itemStock: req.body.itemStock
+            itemStock: req.body.itemStock,
+            itemTags: req.body.itemTags
             
         });
 
