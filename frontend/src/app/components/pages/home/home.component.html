@@ -1,0 +1,29 @@
+<ul>
+  <li *ngFor="let item of items">
+    <a routerLink="/item/{{item.id}}">
+      <img [src]="item.imageUrl" [alt]="item.imageUrl"/>
+      <div class="content">
+        <div class="name">
+          {{item.name}}
+        </div>
+        <div class="stars">
+          <star-rating
+            [value]="item.stars"
+            [totalstars]="5"
+            checkedcolor="red"
+            uncheckedcolor="black"
+            size="22px"
+            [readonly]="true"
+          ></star-rating>
+        </div>
+        <div class="product-item-footer">
+          <div class="price">
+            <span>
+              {{item.price | currency}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>

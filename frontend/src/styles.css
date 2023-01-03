@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* can add google api font in here with "@import url(<url_here>)" */
+
+*{
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* //becuase fonts are not imported properly yet
+html,
+button {
+  font: "quicksand","sans-serif";
+}
+*/
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
