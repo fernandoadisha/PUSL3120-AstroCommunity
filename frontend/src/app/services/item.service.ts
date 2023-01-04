@@ -13,4 +13,10 @@ export class ItemService {
   getAll():Item[] {
     return sample_items;
   }
+
+  getAllItemsBySearchTerm(searchTerm: string) {
+    // in here modify this to get items from the tag
+    return this.getAll().filter(item => item.tag.includes(searchTerm.toLocaleLowerCase()))
+    //return this.getAll().filter(item => item.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+  }
 }

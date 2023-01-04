@@ -6,7 +6,7 @@ export const sample_items: Item[] = [
     id:'1',
     name: 'Toy Falcon 9',
     price: 100,
-    tag: ['Toy','Rocket','Spacex','Falcon9'],
+    tag: ['toy','rocket','spacex','falcon9'],
     imageUrl: 'assets/toyfaclon9_1.jpg',
     stars: 4.9
   },
@@ -14,7 +14,7 @@ export const sample_items: Item[] = [
     id:'2',
     name: 'Toy Orion Capsule',
     price: 100,
-    tag: ['Toy','Rocket','NASA','Orion'],
+    tag: ['toy','rocket','nasa','orion'],
     imageUrl: 'assets/toyorinon_1.jpeg',
     stars: 4.9
   },
@@ -22,7 +22,7 @@ export const sample_items: Item[] = [
     id:'3',
     name: 'SpaceX Tee',
     price: 30,
-    tag: ['Shirt','Men','SpaceX'],
+    tag: ['shirt','men','spacex'],
     imageUrl: 'assets/spacextee_1.jpg',
     stars: 4.0
   }
