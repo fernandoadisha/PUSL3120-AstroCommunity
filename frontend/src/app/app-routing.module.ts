@@ -7,7 +7,8 @@ const routes: Routes = [
   // seems like mention to have home component main one when goes to localhost:4200
   {path:'', component:HomeComponent},
   {path: 'search/:searchTerm', component:HomeComponent},
-  {path: 'item/:id', component:ItemPageComponent}
+  {path: 'item/:id', component:ItemPageComponent},
+  {path: 'tag/:tag', component:HomeComponent}
 ];
 
 @NgModule({

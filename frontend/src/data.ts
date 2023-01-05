@@ -1,5 +1,6 @@
 // for now this file is temporaly holding models for
 import { Item } from './app/shared/models/items';
+import { Tag } from './app/shared/models/tag';
 
 export const sample_items: Item[] = [
   {
@@ -29,4 +30,10 @@ export const sample_items: Item[] = [
 
 ]
 
-
+export const sample_tags:Tag[] = [
+  {name: 'All', count: 6},
+  {name: 'spacex', count: 4},
+  {name: "nasa", count: 5},
+  {name: 'male', count: 3},
+  {name: 'female', count: 3}
+]

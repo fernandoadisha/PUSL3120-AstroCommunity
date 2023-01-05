@@ -9,6 +9,7 @@ import { ItemService } from './services/item.service';
 import { RatingModule } from 'ng-starrating';
 import { SearchComponent } from './partials/search/search.component';
 import { ItemPageComponent } from './components/pages/item-page/item-page.component';
+import { TagsComponent } from './components/partials/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ItemPageComponent } from './components/pages/item-page/item-page.compon
     HeaderComponent,
     HomeComponent,
     SearchComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

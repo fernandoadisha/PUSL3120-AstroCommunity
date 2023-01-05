@@ -16,6 +16,9 @@ export class HomeComponent {
       if(params.searchTerm) {
         this.items = this.itemService.getAllItemsBySearchTerm(params.searchTerm)
       }
+      else if(params.tag) {
+        this.items = this.itemService.getAllItemsByTag(params.tag);
+      }
       else {
         this.items = itemService.getAll();
       }
