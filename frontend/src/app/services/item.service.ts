@@ -19,4 +19,9 @@ export class ItemService {
     return this.getAll().filter(item => item.tag.includes(searchTerm.toLocaleLowerCase()))
     //return this.getAll().filter(item => item.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
   }
+
+  getItemById(itemId: String):Item {
+    return this.getAll().find(item => item.id == itemId) ?? new Item();
+
+  }
 }

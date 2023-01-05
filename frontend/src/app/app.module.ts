@@ -8,13 +8,15 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { ItemService } from './services/item.service';
 import { RatingModule } from 'ng-starrating';
 import { SearchComponent } from './partials/search/search.component';
+import { ItemPageComponent } from './components/pages/item-page/item-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    ItemPageComponent
   ],
   imports: [
     BrowserModule,

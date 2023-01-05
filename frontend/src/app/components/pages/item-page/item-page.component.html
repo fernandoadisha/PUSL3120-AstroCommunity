@@ -1,0 +1,33 @@
+ <div class="container">
+  <img [src]="item.imageUrl" [alt]="item.name"/>
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{item.name}}
+      </span>
+    </div>
+    <div class="rating">
+      <star-rating
+      [value]="item.stars"
+      [totalstars]="5"
+      checkedcolor="red"
+      uncheckedcolor="black"
+      size="25px"
+      [readonly]="true">
+    </star-rating>
+    </div>
+
+    <div class="tags">
+      <a *ngFor="let tag of item.tag" routerLink="/search/{{tag}}"> {{tag}}</a>
+    </div>
+
+    <div class="price">
+      <span>
+        {{item.price | currency}}
+      </span>
+    </div>
+
+    <button>Add To Cart</button>
+  </div>
+ </div>

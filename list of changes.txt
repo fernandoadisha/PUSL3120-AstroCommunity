@@ -1,0 +1,1 @@
+In the "item component" i instead of going for "tags/tag" route I changed it to "search/tag" 
