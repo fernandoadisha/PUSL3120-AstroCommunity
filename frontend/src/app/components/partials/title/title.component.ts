@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { StringSchemaDefinition } from 'mongoose';
 
 @Component({
   selector: 'app-title',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class TitleComponent {
 
+  constructor() {}
+
+  @Input()
+  title!:string;
+
+  @Input()
+  margin? = '1rem 0  1rem 0.2rem';
+
+  @Input()
+  fontSize? = '1.7rem';
 }

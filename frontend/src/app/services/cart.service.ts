@@ -32,14 +32,14 @@ changeQuantity(itemId: string, quantity: number) {
  let cartItem = this.cart.items.find(citem => citem.item.id === itemId);
  if(!cartItem) {return;}
 
-  cartItem.quatity = quantity;
-  cartItem.price = quantity * cartItem.price;
+  cartItem.quantity = quantity;
+  cartItem.price = cartItem.price * quantity;
 
   this.setCartToLocalStorage();
 
 }
 
-claerCart() {
+clearCart() {
  this.cart = new Cart();
  this.setCartToLocalStorage();
 }
@@ -58,7 +58,7 @@ private setCartToLocalStorage(): void {
   .reduce((prevSum, currentItem) =>prevSum +currentItem.price, 0)
 
   this.cart.totalCount = this.cart.items
-  .reduce((prevSum, currentItem) => prevSum + currentItem.quatity, 0);
+  .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
 
   const cartJson = JSON.stringify(this.cart);
   localStorage.setItem('Cart', cartJson);
