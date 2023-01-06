@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'search/:searchTerm', component:HomeComponent},
   {path: 'item/:id', component:ItemPageComponent},
   {path: 'tag/:tag', component:HomeComponent},
-  {path: 'cart/page', component:CartPageComponent}
+  {path: 'cart-page', component:CartPageComponent}
 ];
 
 @NgModule({
