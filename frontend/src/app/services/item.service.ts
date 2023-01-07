@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { sample_items, sample_tags } from 'src/data';
+import { ITEMS_BY_ID, ITEMS_BY_SEARCH_URL, ITEMS_BY_TAG_URL, ITEMS_TAGS_URL, ITEMS_URL } from '../shared/constants/urls';
 import { Item } from '../shared/models/items';
 import { Tag } from '../shared/models/tag';
 
@@ -8,31 +11,31 @@ import { Tag } from '../shared/models/tag';
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   // for now we are using the hard coded items in here, In future this will be connected with the Express, Node and Mongo
-  getAll():Item[] {
-    return sample_items;
+  getAll():Observable<Item[]> {
+    return this.http.get<Item[]>(ITEMS_URL);
   }
 
   getAllItemsBySearchTerm(searchTerm: string) {
     // in here modify this to get items from the tag
-    return this.getAll().filter(item => item.tag.includes(searchTerm.toLocaleLowerCase()))
+    return this.http.get<Item[]>(ITEMS_BY_SEARCH_URL + searchTerm);
     //return this.getAll().filter(item => item.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
   }
 
-  getItemById(itemId: String):Item {
-    return this.getAll().find(item => item.id == itemId) ?? new Item();
+  getItemById(itemId: String):Observable<Item> {
+    return this.http.get<Item>(ITEMS_BY_ID + itemId)
 
   }
 
-  getAllTags(): Tag[] {
-    return sample_tags
+  getAllTags(): Observable<Tag[]> {
+    return this.http.get<Tag[]>(ITEMS_TAGS_URL)
   }
 
-  getAllItemsByTag(tag:string): Item[] {
+  getAllItemsByTag(tag:string): Observable<Item[]> {
     return tag ==="All"?
     this.getAll():
-    this.getAll().filter(item => item.tag?.includes(tag))
+    this.http.get<Item[]>(ITEMS_BY_TAG_URL + tag)
   }
 }

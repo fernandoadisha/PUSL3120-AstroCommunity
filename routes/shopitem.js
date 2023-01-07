@@ -15,7 +15,6 @@ router.get("/api/items", (request,response) => {
 // getting items by search term
 router.get("/api/items/search/:searchTerm", (req,res) => {
     const searchTerm = req.params.searchTerm;
-    constrcutor();
     const items = allItems.filter(item => item.tag.includes(searchTerm.toLocaleLowerCase()));
     res.send(items);
 })
