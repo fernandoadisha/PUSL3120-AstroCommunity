@@ -6,9 +6,16 @@ div{
 
 div a{
   background-color: #f0f0f0;
-  padding: 0.3rem 1rem;
-  margin: 0.2rem 0.15rem;
-  border-radius: 10rem;
+  padding: 0.3rem 3rem;
+  margin: 0rem 0rem;
+  border-radius: 0rem;
+  border: 1px solid #b8b8b8;
   font-weight: 600;
   color: blue;
+  transition: 0.2s;
+}
+
+div a:hover {
+  background-color: #b8b8b8;
+  transition: 0.2s;
 }

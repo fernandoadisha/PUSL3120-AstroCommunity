@@ -5,6 +5,10 @@ const { application } = require('express');
 
 const Item = require('../Model/itemSchema');
 
+router.get('/testing', (req,res) => {
+    res.send("Testing test");
+})
+
 
 // making an dynamic route, ":id" in here takes user assigned value
 // below code the item is being found using the the item
@@ -20,7 +24,8 @@ router.get('/:id', async(req,res) => {
 });
 */
 
-// 
+
+
 router.get('/:id', async(req,res) => {
     try {
         let oneItem = await Item.findByTag(req.params.id);
@@ -53,6 +58,8 @@ router.patch('/:id', async(req,res) => {
         console.log(e.message);
     }
 });
+
+
 
 //getting all the items
 router.get("/", async(req,res) => {
@@ -89,5 +96,11 @@ router.post("/", async(req,res) => {
     }
 
 });
+
+
+
+
+
+
 
 module.exports = router;

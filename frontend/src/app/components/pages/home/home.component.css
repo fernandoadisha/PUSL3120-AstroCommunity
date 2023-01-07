@@ -17,11 +17,14 @@ li a {
   flex-direction: column;
   overflow: hidden;
   color: #e72929;
+  transition: 0.2s;
 }
 
 li a:hover {
   opacity: 0.9;
   cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #cacaca;
 }
 
 li a img {

@@ -1,0 +1,21 @@
+In this module we are not using ES6 in JS, so we are using CommonJs syntax
+
+In this from some internet meterials they are using,
+```
+export sample_data =[{key: value}, {key1: value1}];
+```
+but in CommonJS on runtime this throws an error
+
+solution for this was making a funciton that returns this sample data and export it
+```
+function getSample() {return sample_data}
+module.exports = getSample()
+```
+
+Unlike in TS, if I need to have multiple sample datasets I have to use separate files for each
+
+In case if recieving these data, import systax uses in TS only works with ES6 JS, so in CommonJS, we can use require
+```
+const var_name = require('./ddirectory_path/filename);
+var_name(); // to use above exported funciton
+```

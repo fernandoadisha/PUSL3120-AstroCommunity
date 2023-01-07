@@ -9,7 +9,14 @@ const cors = require("cors");
 // const bodyparser = require("body-parse"); // ** maybe not really required **
 mongoose.set('strictQuery', false); // hiding a warning
 
+
 app.use(express.json());
+
+// Making express accept request from locahost:4200(Angular app)
+app.use(cors({
+    credentials:true,
+    origin:["http://localhost:4200"]
+}));
 
 // Inititating connection with MongoDB
 mongoose.connect(mongoUrl, () => {
@@ -18,9 +25,10 @@ mongoose.connect(mongoUrl, () => {
 
 let port = 9000;
 
-app.get("/", (request,responce) => {
-    responce.send("Hello From Main Page");
+app.get("/", (request,response) => {
+    response.send("Hello From Main Page");
 })
+
 
 // connecting items router to server.js
 const itemRouter = require('./routes/items');
@@ -28,7 +36,11 @@ app.use('/items', itemRouter);
 
 // connecting user touter to server.js
 const userRouter = require('./routes/user');
+const { sample_items } = require("./src/data");
 app.use('/user', userRouter);
+
+const shopItemRouter = require('./routes/shopitem')
+app.use('/shopitem', shopItemRouter);
 
 
 // initiating the app
