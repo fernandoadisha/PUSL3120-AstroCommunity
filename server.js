@@ -6,6 +6,7 @@ const express = require("express"); // importing express library
 const app = express(); // initiating express application
 const path = require("path");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 // const bodyparser = require("body-parse"); // ** maybe not really required **
 mongoose.set('strictQuery', false); // hiding a warning
 
