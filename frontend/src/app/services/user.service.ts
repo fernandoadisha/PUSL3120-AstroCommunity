@@ -22,18 +22,20 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
-          this.userSubject.next(user);
+          this.userSubject.next(user); // on sucessful login
           /*
           this.toastrService.success(
             `Welcome to Astro Community! ${user.name}`,
             'Login Sucessful'
           )
           */
+         alert("Hello You Logged");
         },
-        error: (errorResponse) => {
+        error: (errorResponse) => { // on a login failure
           /*
           this.toastrService.error(errorResponse.error, 'Login Failed');
           */
+          alert("Sorry! Logging failure! \n" + errorResponse);
         }
       })
     )
