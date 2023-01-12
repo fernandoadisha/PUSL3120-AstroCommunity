@@ -1,7 +1,8 @@
 //importing required libraries
+const dotenv = require('dotenv')
 const http = require("http"); //importing http module
 const mongoose = require("mongoose"); // importing mongoose library
-const mongoUrl = "mongodb://0.0.0.0:27017/testdb"; //URL for mongodb 
+// const mongoUrl = "mongodb://0.0.0.0:27017/testdb"; //URL for mongodb 
 const express = require("express"); // importing express library
 const app = express(); // initiating express application
 const path = require("path");
@@ -13,6 +14,9 @@ mongoose.set('strictQuery', false); // hiding a warning
 
 app.use(express.json());
 
+dotenv.config();
+
+
 // Making express accept request from locahost:4200(Angular app)
 app.use(cors({
     credentials:true,
@@ -20,14 +24,15 @@ app.use(cors({
 }));
 
 // Inititating connection with MongoDB
-mongoose.connect(mongoUrl, () => {
+mongoose.connect(process.env.MONGO_URI_LOCAL, () => { // originally it "mongoUrl" was used here as first paramater
     console.log("Connected to DB");
 }), e => console.error(e);
 
 let port = 9000;
 
 app.get("/", (request,response) => {
-    response.send("Hello From Main Page");
+    response.send(process.env.MONGO_URI_LOCAL);
+    //response.send("Hello From Main Page");
 })
 
 

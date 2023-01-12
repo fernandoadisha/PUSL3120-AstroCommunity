@@ -17,4 +17,4 @@ userSchema.statics.findByName = function(name) {
 function findByName(name) {
     
 }
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("lusers", userSchema); // early test, so chaning from original value (users) to (lusers) 

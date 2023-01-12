@@ -1,10 +1,14 @@
 const express = require("express");
 const router  = express();
 const jwt = require("jsonwebtoken");
+const { model } = require('mongoose');
+const { application } = require('express');
 
-const sUser = require("../Model/userSchema");
+//const sUser = require("../Model/userSchema");
+const sUser = require("../Model/usermodel");
 
 const Users = require('../src/sampleuser');
+
 
 
 /*
@@ -13,10 +17,11 @@ router.get('/', (req,res) => {
 });
 */
 
-router.post('/api/login', (req,res) => {
+router.post('/api/login', async(req,res) => {
     const body = req.body;
     const {email, password} = req.body; // instead of using body.email etc.. we can save these data in email etc varibles by this
-    const user = Users().find(user => user.email === email && user.password === password);
+    const user = await sUser.findOne({email,password});
+    //const user = Users().find(user => user.email === email && user.password === password);
 
     if(user){
         res.send(generateTokenResponse(user))
@@ -25,8 +30,32 @@ router.post('/api/login', (req,res) => {
     }
 });
 
+router.post("/seed", async(req,res) => {
+
+    try {
+        // making the schema by extracting values from the body
+        var newUser = new sUser({
+
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            address: req.body.address,
+            isAdmin: req.body.isAdmin,
+            
+        });
+
+        //saving them in the db
+        const iUser = await newUser.save(); // iUser stands for inserted user in here
+        res.json(newUser); 
+
+    } catch (e) {
+        console.log(e.message);
+    }
+
+});
 
 
+/*
 // finding user by name as query param
 router.get('/:id', async(req,res) => {
     try {
@@ -38,6 +67,7 @@ router.get('/:id', async(req,res) => {
         console.log(e.message);
     }
 });
+
 
 router.post('/', async(req,res) => {
     try {
@@ -60,6 +90,9 @@ router.post('/', async(req,res) => {
         console.log(e.message);
     }
 });
+*/
+
+
 
 const generateTokenResponse = (user) => {
     const token = jwt.sign({
