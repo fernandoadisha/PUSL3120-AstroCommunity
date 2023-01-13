@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TitleStrategy } from '@angular/router';
 // import { ToastrService } from 'ngx-toastr/public_api';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
 
 
@@ -39,6 +41,21 @@ export class UserService {
           this.toastrService.error(errorResponse.error, 'Login Failed');
           */
           alert("Sorry! Logging failure! \n" + errorResponse);
+        }
+      })
+    )
+  }
+
+  register(userRegister: IUserRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          alert("Register Sucessful");
+        },
+        error: (errorResponse) => {
+          alert("Register Failed \n" + errorResponse.error);
         }
       })
     )

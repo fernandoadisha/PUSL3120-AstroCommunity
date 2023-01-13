@@ -8,6 +8,7 @@ const { application } = require('express');
 const sUser = require("../Model/usermodel");
 
 const Users = require('../src/sampleuser');
+const bcrypt = require('bcryptjs');
 
 
 
@@ -34,19 +35,33 @@ router.post("/seed", async(req,res) => {
 
     try {
         // making the schema by extracting values from the body
+
+        const {name, email, password, address, isAdmin} = req.body;
+
+        const encryptedPassword = await bcrypt.hash(password, 10);
+
         var newUser = new sUser({
 
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password,
-            address: req.body.address,
-            isAdmin: req.body.isAdmin,
+            name: name,
+            email: email.toLowerCase(),
+            password: encryptedPassword,
+            address: address,
+            isAdmin: isAdmin,
             
         });
 
+        const user = await sUser.findOne({email});
+
+        // if user already exists with the email, error will be thrown
+        if(user) {
+            res.status(400).send("User already exists, please Log In");
+            return;
+        }
+
         //saving them in the db
         const iUser = await newUser.save(); // iUser stands for inserted user in here
-        res.json(newUser); 
+        res.send(generateTokenResponse(iUser));
+        //res.json(iUser);
 
     } catch (e) {
         console.log(e.message);
