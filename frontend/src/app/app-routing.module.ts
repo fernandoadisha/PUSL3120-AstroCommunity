@@ -4,6 +4,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { HomeComponent } from './components/pages/home/home.component';
 import { ItemPageComponent } from './components/pages/item-page/item-page.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
 const routes: Routes = [
   // seems like mention to have home component main one when goes to localhost:4200
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'item/:id', component:ItemPageComponent},
   {path: 'tag/:tag', component:HomeComponent},
   {path: 'cart-page', component:CartPageComponent},
-  {path: 'login', component:LoginPageComponent}
+  {path: 'login', component:LoginPageComponent},
+  {path: 'register', component:RegisterPageComponent}
 ];
 
 @NgModule({

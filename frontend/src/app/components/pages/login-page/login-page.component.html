@@ -9,6 +9,10 @@
       <text-input [control]="fc.password" [showErrorsWhen]="isSubmitted" type="password" label="Password"></text-input>
 
       <default-button text="Login"></default-button>
+      <div class="register">
+        New User? &nbsp;
+        <a routerLink="/register" [queryParams]="{returnUrl: returnUrl}"> Register Here</a>
+      </div>
     </form>
   </div>
 </div>
