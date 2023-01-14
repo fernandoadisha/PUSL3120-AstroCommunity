@@ -49,6 +49,10 @@ getCartObservable():Observable<Cart> {
 
 }
 
+getCart():Cart {
+  return this.cartSubject.value;
+}
+
 // In a refreshing page situation all the data in the cart can be lost
 // To solve this we can use local storage to save data
 // this way we can access them even after a refresh
