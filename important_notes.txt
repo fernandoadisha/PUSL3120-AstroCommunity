@@ -19,3 +19,11 @@ In case if recieving these data, import systax uses in TS only works with ES6 JS
 const var_name = require('./ddirectory_path/filename);
 var_name(); // to use above exported funciton
 ```
+
+
+----------------------------------------------------------------------------
+When creating the chat part, we can use authGuard to prevent users from using chat without log in
+Tutorial for this is available in 'https://www.youtube.com/watch?v=IQXEmCUp5gw&list=PLpaspowtqj-dA0cRZ1yEZBv0iwdOru-SC&index=20'
+around 27mins
+
+----------------------------------------------------------------------------
