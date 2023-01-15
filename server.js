@@ -45,8 +45,11 @@ const userRouter = require('./routes/user');
 const { sample_items } = require("./src/data");
 app.use('/user', userRouter);
 
-const shopItemRouter = require('./routes/shopitem')
+const shopItemRouter = require('./routes/shopitem');
 app.use('/shopitem', shopItemRouter);
+
+const orderRouter = require('./routes/order');
+app.use("/order", orderRouter);
 
 
 // initiating the app
