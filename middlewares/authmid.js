@@ -10,7 +10,7 @@ function authmid (req,res,next) {
         res.status(401).send();
     }
 
-    return neex();
+    return next();
 }
 
 module.exports = authmid;

@@ -25,6 +25,7 @@ router.post('/api/login', async(req,res) => {
     //const user = Users().find(user => user.email === email && user.password === password);
 
     if(user){
+        //res.send(user);
         res.send(generateTokenResponse(user))
     } else {
         res.status(400).send("User name or password is not valid!");
@@ -111,9 +112,9 @@ router.post('/', async(req,res) => {
 
 const generateTokenResponse = (user) => {
     const token = jwt.sign({
-        id: user.id, eamil:user.email, isAdmin:user.isAdmin
-    },process.env.JWT_SECRET, {
-        expiresIn:"1d"
+        id: user.id, email:user.email, isAdmin:user.isAdmin
+    },"process.env.JWT_SECRET", { // In here the private key comes instead of "random text"
+        expiresIn:"1h"
     })
 
     user.token = token;

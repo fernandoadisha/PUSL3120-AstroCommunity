@@ -1,9 +1,14 @@
 const express = require('express');
-const ordermodel = require('../Model/ordermodel');
-const router = express().Router();
-const auth = require('../middlewares/authmid');
+const { application } = require('express');
+const router = express.Router();
+const { model } = require('mongoose');
 
+// currently issue in in below line
+const ordermodel = require('../Model/ordermodel');
+
+const auth = require('../middlewares/authmid');
 router.use(auth);
+
 
 router.post('/create', async(req,res) => {
     const requestOrder = req.body;
@@ -14,7 +19,7 @@ router.post('/create', async(req,res) => {
     }
 
     await ordermodel.deleteOne({
-        user: req.user.id,
+        user: req.auth.id,
         status: "NEW"
     })
 
@@ -22,3 +27,35 @@ router.post('/create', async(req,res) => {
     await newOrder.save();
     res.send(newOrder);
 })
+
+router.get('/newOrderForCurrentUser', async(req,res) => {
+    const order = await getNewOrderForCurrentUser(req);
+    if(order) {
+        res.send(order);
+    }
+    else {
+        res.status(400).send();
+    }
+})
+
+router.post('/pay', async(req,res) => {
+    const {paymentId} = req.body;
+    const order = await getNewOrderForCurrentUser(req);
+    if(!order){
+        res.status(400).send('Order Not Found');
+        return;
+    }
+
+    order.paymentId = paymentId;
+    order.status = "PAYED"
+    await order.save();
+
+    res.send(order._id);
+})
+
+
+module.exports = router;
+
+async function getNewOrderForCurrentUser(req) {
+    return await ordermodel.findOne({ user: req.user.id, status: "NEW" });
+}
