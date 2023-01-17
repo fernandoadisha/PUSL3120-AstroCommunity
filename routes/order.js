@@ -59,9 +59,19 @@ router.post('/pay', async(req,res) => {
     res.send(order._id);
 })
 
+router.get('/track/:id', async(req,res) => {
+    const order = await ordermodel.findById(req.params.id);
+    res.send(order);
+})
+
 
 module.exports = router;
 
 async function getNewOrderForCurrentUser(req) {
-    return await ordermodel.findOne({ user: req.user.id, status: "NEW" });
+    try {
+        return await ordermodel.findOne({ user: req.user.id, status: "NEW" });
+    }
+    catch (error) {
+        console.log("Getting logginh details error: " + error.error);
+    }
 }

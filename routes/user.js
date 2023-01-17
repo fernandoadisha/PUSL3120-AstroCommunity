@@ -23,10 +23,10 @@ router.get('/', (req,res) => {
 router.post('/api/login', async(req,res) => {
     const body = req.body;
     const {email, password} = req.body; // instead of using body.email etc.. we can save these data in email etc varibles by this
-    const user = await sUser.findOne({email,password});
+    const user = await sUser.findOne({email});
     //const user = Users().find(user => user.email === email && user.password === password);
 
-    if(user){
+    if(user && (await bcrypt.compare(password,user.password))){
         //res.send(user);
         res.send(generateTokenResponse(user))
     } else {

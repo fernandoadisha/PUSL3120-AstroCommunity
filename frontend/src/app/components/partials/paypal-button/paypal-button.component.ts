@@ -16,7 +16,7 @@ export class PaypalButtonComponent implements OnInit {
   @Input()
   order!:Order;
 
-  @ViewChild('payapl', {static: true})
+  @ViewChild('paypal', {static: true})
   paypalElement!:ElementRef;
 
   constructor(private orderService:OrderService, private cartService:CartService, private router:Router) {}
@@ -30,7 +30,7 @@ export class PaypalButtonComponent implements OnInit {
             purchase_units: [
               {
                 amount: {
-                  currency_code: 'CAD',
+                  currency_code: 'USD',
                   value: self.order.totalPrice,
                 },
               },

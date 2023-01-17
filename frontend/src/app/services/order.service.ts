@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ORDERS_CREATE_URL, ORDERS_NEW_FOR_CURRENT_USER_URL, ORDERS_PAY_URL } from '../shared/constants/urls';
+import { ORDERS_CREATE_URL, ORDERS_NEW_FOR_CURRENT_USER_URL, ORDERS_PAY_URL, ORDERS_TRACK_URL } from '../shared/constants/urls';
 import { Order } from '../shared/models/Order';
 
 @Injectable({
@@ -22,6 +22,10 @@ export class OrderService {
   }
 
   pay(order:Order):Observable<string>{
-    return this.http.post<string>(ORDERS_PAY_URL,order);
+    return this.http.post<string>(ORDERS_PAY_URL, order);
+  }
+
+  trackOrderById(id:number): Observable<Order>{
+    return this.http.get<Order>(ORDERS_TRACK_URL + id);
   }
 }
