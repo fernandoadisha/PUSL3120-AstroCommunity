@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const { model } = require('mongoose');
 const { application } = require('express');
 
+require("dotenv").config();
+
 //const sUser = require("../Model/userSchema");
 const sUser = require("../Model/usermodel");
 
@@ -112,8 +114,8 @@ router.post('/', async(req,res) => {
 
 const generateTokenResponse = (user) => {
     const token = jwt.sign({
-        id: user.id, email:user.email, isAdmin:user.isAdmin
-    },"process.env.JWT_SECRET", { // In here the private key comes instead of "random text"
+        id:user.id, email:user.email, isAdmin:user.isAdmin
+    },process.env.JWT_SECRET, { // In here the private key comes instead of "random text"
         expiresIn:"1h"
     })
 

@@ -8,6 +8,14 @@ const userSchema = new mongoose.Schema({
     address: {type: String},
     token: {type: String},
     isAdmin: {type: Boolean, default: false}
+}, {
+    timestamps: true,
+    toJSON:{
+        virtuals:true
+    },
+    toObject:{
+        virtuals:true
+    }
 });
 
 /*

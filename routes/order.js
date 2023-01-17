@@ -18,13 +18,19 @@ router.post('/create', async(req,res) => {
         return;
     }
 
+    
     await ordermodel.deleteOne({
-        user: req.auth.id,
+        user: req.user.id,
         status: "NEW"
     })
 
+    
+    
+
     const newOrder = new ordermodel({...requestOrder, user: req.user.id});
+    console.log("Creating new user sucessful!\n" + newOrder + "\n-----------------");
     await newOrder.save();
+    
     res.send(newOrder);
 })
 

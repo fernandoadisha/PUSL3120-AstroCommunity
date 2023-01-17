@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
+const itemmodel = require('./itemmodel');
 
-
-
-const ItemModel = require("./itemmodel");
 
 const shopItemSchema = new mongoose.Schema({
+    //id: {type: String},
     name: {type: String},
     price: {type: Number},
     tag: {type: Array},
@@ -25,10 +24,12 @@ const orderItem = new mongoose.Schema({
 });
 
 
+
 const orderSchema = new mongoose.Schema({
-    items: orderItem,//items: orderItem, //maybe thhis can be just Array
+    id: String,
+    items: [orderItem],//items: orderItem, //maybe this can be just Array
     totalPrice: Number,
-    name: String,
+    name: String,   
     address: String,
     addressLatLng: latlng, //addressLatLng: latlng,
     paymentId: String,  
