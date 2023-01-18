@@ -10,7 +10,7 @@ import { PasswordMatchValidator } from 'src/app/shared/validators/password_match
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.css']
 })
-export class RegisterPageComponent {
+export class RegisterPageComponent implements OnInit {
 
   registerForm!:FormGroup;
   isSubmitted = false;

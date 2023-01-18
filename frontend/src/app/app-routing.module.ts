@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { AddItemsPageComponent } from './components/pages/add-items-page/add-items-page.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { ChatPageComponent } from './components/pages/chat-page/chat-page.component';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ItemPageComponent } from './components/pages/item-page/item-page.component';
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'register', component:RegisterPageComponent},
   {path: 'checkout', component:CheckoutPageComponent, canActivate:[AuthGuard]},
   {path: 'payment', component:PaymentPageComponent, canActivate:[AuthGuard]},
-  {path: 'track/:orderId', component:OrderTrackPageComponent, canActivate:[AuthGuard]}
+  {path: 'track/:orderId', component:OrderTrackPageComponent, canActivate:[AuthGuard]},
+  {path: 'additem', component:AddItemsPageComponent, canActivate:[AuthGuard]},
+  {path: 'chat', component:ChatPageComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ const app = express(); // initiating express application
 const path = require("path");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const io = require('socket.io');
 // const bodyparser = require("body-parse"); // ** maybe not really required **
 mongoose.set('strictQuery', false); // hiding a warning
 
@@ -38,7 +39,7 @@ app.get("/", (request,response) => {
 
 // connecting items router to server.js
 const itemRouter = require('./routes/items');
-app.use('/items', itemRouter);
+app.use('/items', itemRouter); 
 
 // connecting user touter to server.js
 const userRouter = require('./routes/user');
