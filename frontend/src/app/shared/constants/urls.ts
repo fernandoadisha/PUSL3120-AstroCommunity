@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:9000'
+export const BASE_URL = 'http://localhost:9000'
 
 export const ITEMS_URL = BASE_URL + '/shopitem/api/items';
 export const ITEMS_TAGS_URL = ITEMS_URL + '/tags';

@@ -1,14 +1,16 @@
 //importing required libraries
 const dotenv = require('dotenv')
-const http = require("http"); //importing http module
 const mongoose = require("mongoose"); // importing mongoose library
 // const mongoUrl = "mongodb://0.0.0.0:27017/testdb"; //URL for mongodb 
 const express = require("express"); // importing express library
 const app = express(); // initiating express application
+const http = require("http").Server(app); //importing http module
 const path = require("path");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-const io = require('socket.io');
+const socket = require('socket.io');
+
+
 // const bodyparser = require("body-parse"); // ** maybe not really required **
 mongoose.set('strictQuery', false); // hiding a warning
 
@@ -52,8 +54,26 @@ app.use('/shopitem', shopItemRouter);
 const orderRouter = require('./routes/order');
 app.use("/order", orderRouter);
 
+const chatRouter = require('./routes/chat');
+const { Server } = require('http');
+app.use("/chat", chatRouter);
+
 
 // initiating the app
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log("Server listen on port: " + port);
 });
+
+const io = new Server(server)
+
+
+io.on('connect', (socket) => {
+    console.log("A new connetion made");
+})
+
+
+io.on('connect_error', (err) => {
+    console.log("Client Error");
+})
+
+
