@@ -7,13 +7,19 @@
         <a routerLink="/login">Login</a>
       </li>
       <li *ngIf="isAuth" class="menu-container">
-        <a routerLink="/dashboard"> {{user.name}} </a>
+        <a routerLink="/dashboard"> <div class="loginName">{{user.name}}</div> </a>
         <div class="menu">
           <a routerLink="/profile">Profile</a>
           <a routerLink="/orders">Orders</a>
           <a *ngIf="isAdmin" routerLink="/additem">Add New Items</a>
           <a (click)="logout()">Log Out</a>
         </div>
+      </li>
+      <li>
+        <a routerLink="/news">News</a>
+      </li>
+      <li>
+        <a routerLink="/news">Store</a>
       </li>
       <li>
         <a routerLink="/cart-page">

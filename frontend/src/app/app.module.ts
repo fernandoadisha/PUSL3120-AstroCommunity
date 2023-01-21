@@ -34,6 +34,7 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { AddItemsPageComponent } from './components/pages/add-items-page/add-items-page.component';
 import { ChatPageComponent } from './components/pages/chat-page/chat-page.component';
+import { NewsComponent } from './components/pages/news/news.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ChatPageComponent } from './components/pages/chat-page/chat-page.compon
     PaypalButtonComponent,
     OrderTrackPageComponent,
     AddItemsPageComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
