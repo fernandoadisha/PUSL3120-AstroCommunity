@@ -1,1 +1,17 @@
-<p>In chat html</p>
+<!-- <button (click)="getUser()">User</button> -->
+<div class="App">
+  <div class="box">
+    <div class="messages">
+      <div *ngFor="let msg of messageList">{{msg}}</div>
+    </div>
+    <form
+      [formGroup]="messageForm"
+      class="input-div"
+      (submit)="submitMessage()"
+    >
+      <input type="text" placeholder="Message" formControlName="message" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+

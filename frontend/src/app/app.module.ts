@@ -35,6 +35,7 @@ import { OrderTrackPageComponent } from './components/pages/order-track-page/ord
 import { AddItemsPageComponent } from './components/pages/add-items-page/add-items-page.component';
 import { ChatPageComponent } from './components/pages/chat-page/chat-page.component';
 import { NewsComponent } from './components/pages/news/news.component';
+import { ChatService } from './services/chat.service';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { NewsComponent } from './components/pages/news/news.component';
   ],
   providers: [
     ItemService,
+    ChatService,
     {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide:HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],

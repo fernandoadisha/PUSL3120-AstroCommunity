@@ -58,15 +58,6 @@ const chatRouter = require('./routes/chat');
 const { Server } = require('http');
 app.use("/chat", chatRouter);
 
-const io = new Server(http);
-
-io.on('connect', (socket) => {
-    console.log("A new connetion made");
-})
-
-io.on('connect_error', (err) => {
-    console.log("Client Error");
-})
 
 module.exports = app;
 
