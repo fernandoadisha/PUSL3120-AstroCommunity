@@ -9,7 +9,6 @@ const ordermodel = require('../Model/ordermodel');
 const auth = require('../middlewares/authmid');
 router.use(auth);
 
-
 router.post('/create', async(req,res) => {
     const requestOrder = req.body;
 

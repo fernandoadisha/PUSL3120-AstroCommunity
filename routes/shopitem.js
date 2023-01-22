@@ -13,6 +13,10 @@ const { count } = require("../Model/itemSchema");
 allItems = getSampleItems();
 allTags = getSampleTags();
 
+router.get("/test", (req,res) => {
+    res.send("Router Works!");
+});
+
 router.get("/api/items", async(request,response) => {
     const items = await shopItem.find();
     response.send(items);

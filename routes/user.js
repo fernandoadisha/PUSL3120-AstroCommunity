@@ -14,11 +14,11 @@ const bcrypt = require('bcryptjs');
 
 
 
-/*
-router.get('/', (req,res) => {
-    res.send("Hello from User");
+
+router.get('/test', (req,res) => {
+    res.send("User user router works!");
 });
-*/
+
 
 router.post('/api/login', async(req,res) => {
     const body = req.body;
