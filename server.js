@@ -58,20 +58,23 @@ const chatRouter = require('./routes/chat');
 const { Server } = require('http');
 app.use("/chat", chatRouter);
 
-
-// initiating the app
-const server = app.listen(port, () => {
-    console.log("Server listen on port: " + port);
-});
-
-const io = new Server(server)
-
+const io = new Server(http);
 
 io.on('connect', (socket) => {
     console.log("A new connetion made");
 })
 
-
 io.on('connect_error', (err) => {
     console.log("Client Error");
 })
+
+// initiating the app
+app.listen(port, () => {
+    console.log("Server listen on port: " + port);
+});
+
+
+
+
+
+

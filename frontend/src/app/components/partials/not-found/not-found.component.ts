@@ -13,5 +13,5 @@ export class NotFoundComponent {
   @Input()
   resetLinkText = "Reset";
   @Input()
-  resetLinkRoute = "/";
+  resetLinkRoute = "/store";
 }
