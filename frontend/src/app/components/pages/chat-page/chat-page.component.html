@@ -2,7 +2,7 @@
 <div class="App">
   <div class="box">
     <div class="messages">
-      <div *ngFor="let msg of messageList">{{msg}}</div>
+      <div *ngFor="let msg of messageList">{{msg.name}} : {{msg.message}}</div>
     </div>
     <form
       [formGroup]="messageForm"

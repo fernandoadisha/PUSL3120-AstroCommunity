@@ -26,9 +26,12 @@ io.on('connect', (socket) => {
         console.log("User Disconnected");
     })
 
-    socket.on('message', (msg,name) => {
-        console.log(msg);
-        io.emit('incomming', msg, name);
+    socket.on('message', (message,name) => {
+        let chat = {
+            "name":name,
+            "message":message
+        }
+        io.emit('incomming', chat);
     })
 
 })
