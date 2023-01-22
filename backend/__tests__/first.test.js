@@ -1,4 +1,4 @@
-const stot = require("./simpletot");
+const stot = require("../simpletot");
 
 test('test running the tests', () => {
     const output = stot(3,4);
