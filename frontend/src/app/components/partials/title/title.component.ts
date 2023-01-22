@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { StringSchemaDefinition } from 'mongoose';
 
 @Component({
   selector: 'app-title',
