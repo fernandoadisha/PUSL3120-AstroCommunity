@@ -11,16 +11,16 @@ ul {
 }
 
 li a {
-  height: 20.4rem;
+  height: 21rem;
   width: 20rem;
   font-family: 'poppins', sans-serif;
-  border: 1px solid whitesmoke;
+  border: 5px solid #414141;
   border-radius: 1rem;
   margin: 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: #e72929;
+  color: #2b2b2b;
   transition: 0.2s;
 }
 
@@ -28,12 +28,14 @@ li a:hover {
   opacity: 0.9;
   cursor: pointer;
   transition: 0.2s;
-  border: 1px solid #cacaca;
+  border: 2px solid black;
 }
 
 li a img {
-  object-fit: cover;
+  object-fit: contain;
   height: 14.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid lightgrey;
 }
 
 .content{
@@ -58,6 +60,7 @@ li a img {
 .stars {
   margin-bottom: 0.2rem;
 }
+
 
 .product-item-footer{
   display: flex;

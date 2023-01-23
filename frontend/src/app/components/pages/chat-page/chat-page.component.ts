@@ -4,13 +4,9 @@ import { io } from 'socket.io-client';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 import { BASE_URL, IO_URL } from 'src/app/shared/constants/urls';
-//import { Chats } from 'src/app/shared/models/chats';
+import { Chats } from 'src/app/shared/models/chats';
 import { User } from 'src/app/shared/models/User';
 
-class Chats {
-  message!:string;
-  name!:string;
-}
 
 @Component({
   selector: 'app-chat-page',
@@ -18,8 +14,6 @@ class Chats {
   styleUrls: ['./chat-page.component.css']
 })
 export class ChatPageComponent implements OnInit {
-
-
   socket:any
   user!:User;
   uname!:string;
@@ -40,7 +34,6 @@ export class ChatPageComponent implements OnInit {
   }
 
   setupSocketConnection() {
-    //this.chatService.setupSocketConnection;
     this.socket = io(IO_URL, {reconnection: true});
   }
 
@@ -54,7 +47,6 @@ export class ChatPageComponent implements OnInit {
 
   subscribeToMessage() {
     this.socket.on("incomming", (msg:Chats) => {
-      //alert(msg.message);
       this.messageList = [...this.messageList, msg];
     })
   }
@@ -62,6 +54,5 @@ export class ChatPageComponent implements OnInit {
   sendMessage(msg: string, name:string) {
       this.socket.emit('message', msg, name);
   }
-
 
 }

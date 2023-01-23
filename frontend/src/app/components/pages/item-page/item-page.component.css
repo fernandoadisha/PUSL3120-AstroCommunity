@@ -13,10 +13,18 @@
 
 img {
   border-radius: 3rem;
+  border: 0.3rem solid #8c8c8c;
   flex: 1 0;
-  object-fit: cover;
+  transition: transform .2s;
+  object-fit: contain;
   height: 35rem;
   margin: 1rem;
+}
+
+img:hover {
+  transition: .2s;
+  border: 0.1rem solid #8c8c8c;
+  transform: scale(1.05);
 }
 
 .details {

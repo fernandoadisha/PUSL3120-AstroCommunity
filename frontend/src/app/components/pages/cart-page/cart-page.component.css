@@ -35,6 +35,7 @@ li img{
   height: 5rem;
   border-radius: 100rem;
   object-fit: cover;
+  border: 0.01rem solid #8c8c8c;
 }
 
 li div{
@@ -57,14 +58,19 @@ li select{
 li .remove-button{
   border-radius: 1rem;
   border: none;
+  width: 8rem;
   padding: 0.5rem;
   color: #e72929;
-  opacity: 0.7;
+  transition: 0.2s;
+  opacity: 1;
   outline: none;
 }
 
 li .remove-button:hover{
-  opacity: 1;
+  opacity: 0.7;
+  transition: 0.2s;
+  background-color: #ba0019;
+  color: aliceblue;
   cursor: pointer;
 }
 
@@ -96,12 +102,12 @@ li .remove-button:hover{
 }
 
 .item-count::before{
-  content:"Count: ";
+  content:"Item Count: ";
   color: grey;
 }
 
 .total-price::before{
-  content: 'Price: ';
+  content: 'Total Price: ';
   color: grey;
 }
 
