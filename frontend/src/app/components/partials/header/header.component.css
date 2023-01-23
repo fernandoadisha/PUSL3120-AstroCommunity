@@ -9,7 +9,8 @@ header {
 }
 
 a {
-  color: #af1313;
+  /*color: #af1313;*/
+  color: aliceblue;
   font-family: 'poppins', sans-serif;
   transition: 0.3s;
 }
@@ -25,6 +26,7 @@ a:hover {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  background-color: #1f1f1f;
 }
 
 a.logo {
@@ -58,7 +60,7 @@ a span {
 .menu {
   position: absolute;
   z-index: 1;
-  background: whitesmoke;
+  background: #474646;
   display: none;
 }
 

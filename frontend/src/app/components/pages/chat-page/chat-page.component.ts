@@ -32,10 +32,6 @@ export class ChatPageComponent implements OnInit {
   ngOnInit(): void {
     this.chatService.setupSocketConnection();
     this.subscribeToMessage()
-    /*
-    this.setupSocketConnection();
-    this.subscribeToMessage()
-    */
   }
 
   subscribeToMessage() {
@@ -48,27 +44,7 @@ export class ChatPageComponent implements OnInit {
     const message = this.messageForm.get('message')?.value;
     if(message) {
       this.chatService.sendMessage(message, this.uname);
-      //this.sendMessage(message, this.uname);
     }
     this.messageForm.reset();
   }
-
-  /*
-
-  setupSocketConnection() {
-    this.socket = io(IO_URL, {reconnection: true});
-  }
-
-  subscribeToMessage() {
-    this.socket.on("incomming", (msg:Chats) => {
-      this.messageList = [...this.messageList, msg];
-    })
-  }
-
-  sendMessage(msg: string, name:string) {
-      this.socket.emit('message', msg, name);
-  }
-
-  */
-
 }
