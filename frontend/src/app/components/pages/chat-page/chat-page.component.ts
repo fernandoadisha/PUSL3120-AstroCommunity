@@ -18,7 +18,11 @@ export class ChatPageComponent implements OnInit {
   user!:User;
   uname!:string;
   msg!:Chats;
+  chatRoom: string = "General"
   messageList:Chats[] = [];
+  messageListStar:Chats[] = [];
+  messageListGeneral:Chats[] = [];
+  messageListRockets:Chats[] = [];
 
   constructor(private chatService: ChatService, private userService:UserService, private formBuilder:FormBuilder) {
     this.user = this.userService.currentUser;
@@ -36,15 +40,47 @@ export class ChatPageComponent implements OnInit {
 
   subscribeToMessage() {
     this.chatService.socket.on("incomming", (msg:Chats) => {
-      this.messageList = [...this.messageList, msg];
+      if(msg.room=="Stars") {
+        this.messageListStar = [...this.messageListStar, msg]
+        this.changeList(this.messageListStar);
+      }
+
+      if(msg.room=="General") {
+        this.messageListGeneral = [...this.messageListGeneral, msg]
+        this.changeList(this.messageListGeneral);
+      }
+
+      if(msg.room=="Rockets") {
+        this.messageListRockets = [...this.messageListRockets, msg]
+        this.changeList(this.messageListRockets);
+      }
+
+      //this.messageList = [...this.messageList, msg];
     })
   }
 
   submitMessage() {
     const message = this.messageForm.get('message')?.value;
     if(message) {
-      this.chatService.sendMessage(message, this.uname);
+      this.chatService.sendMessage(message, this.uname, this.chatRoom);
     }
     this.messageForm.reset();
+  }
+
+  changeRoom(room:string) {
+    this.chatRoom = room;
+    if(room=="Stars") {
+      this.changeList(this.messageListStar);
+    }
+    if(room=="General") {
+      this.changeList(this.messageListGeneral);
+    }
+    if(room=="Rockets") {
+      this.changeList(this.messageListRockets);
+    }
+  }
+
+  changeList(newlist:Chats[]) {
+    this.messageList = newlist;
   }
 }

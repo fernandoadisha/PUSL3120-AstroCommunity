@@ -45,7 +45,7 @@ ul a {
   display: inline-block;
 }
 
-a span {
+.cartno {
   background: #ff4d4d;
   color: white;
   padding: 0.1rem 0.45rem;
@@ -75,4 +75,8 @@ a span {
 
 .loginName {
  font-weight: 900;
+}
+
+.lol {
+ margin-top: 10rem;
 }

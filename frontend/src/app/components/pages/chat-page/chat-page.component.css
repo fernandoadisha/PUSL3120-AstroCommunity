@@ -4,19 +4,38 @@
 
 .App {
   padding: 1rem;
+  display: flex;
+}
+
+.appContainer {
+  font-family: 'poppins', sans-serif;
+  background-color: #9c9c9c;
+  height: fit-content;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  border: solid 4px #000;
+  min-height: 32rem;
+  flex-direction: column;
 }
 
 .box {
-  font-family: 'poppins', sans-serif;
-  padding: 2rem;
-  width: 62rem;
-  height: fit-content;
-  min-height: 33rem;
-  border: solid 4px #000;
-  border-radius: 3rem;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
+  width: 70rem;
+  background: rgb(109,209,246);
+  background: radial-gradient(circle, rgba(109,209,246,1) 28%, rgba(196,177,228,1) 95%, rgba(143,170,255,1) 100%);
+}
+
+.selectChats {
+  width: 20rem;
+  float: left;
+  margin-left: 2rem;
+  background: rgb(46,48,125);
+  background: radial-gradient(circle, rgba(46,48,125,1) 41%, rgba(34,1,60,1) 100%);
+}
+
+.selectChats .roomName {
+  margin-left: 0;
+  margin-bottom: 1rem;
 }
 
 .messages {
@@ -35,9 +54,9 @@ input {
   /*border-radius: 5rem 0 0 5rem;*/
   border-radius: 5rem;
   font-family: 'poppins', sans-serif;
-  border: none;
+  border: 2px solid purple;
   height: 3rem;
-  width: 55rem;
+  width: 65rem;
   background-color: #f1f1f1;
   padding: 1.2rem;
   font-size: 1.1rem;
@@ -57,7 +76,7 @@ input {
   font-size: 1.1rem;
   border-radius: 5rem;
   /*border-radius: 0 5rem 5rem 0;*/
-  border: none;
+  border: 2px solid purple;
   background-color: #002626;
   color: white;
   opacity: 0.8;
@@ -71,3 +90,26 @@ div button:hover{
   cursor: pointer;
   transition: 0.5s;
 }
+
+.roomName {
+  font-family: 'poppins', sans-serif;
+  margin-left: 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: red;
+  align-self: center;
+}
+
+.selectChatsBtn {
+  padding: .5rem;
+  margin: .1rem;
+  font-family: 'poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #114870;
+  border-radius: 2rem;
+  color: white;
+  border: .2rem solid grey;
+}
+
+

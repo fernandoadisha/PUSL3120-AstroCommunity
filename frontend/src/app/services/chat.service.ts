@@ -23,9 +23,9 @@ export class ChatService {
     }
   }
 
-  sendMessage(msg: string, name:string) {
+  sendMessage(msg: string, name:string, chatRoom:string) {
     if(this.socket) {
-      this.socket.emit('message', msg, name);
+      this.socket.emit('message', msg, name, chatRoom);
     } else {
       alert("sokcet undifeined")
     }
