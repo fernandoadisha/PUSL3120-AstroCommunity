@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 // import { io } from 'socket.io-client';
 import { Observable } from 'rxjs';
 import { BASE_URL, IO_URL } from '../shared/constants/urls';
+import { Chats } from '../shared/models/chats';
 
 
 @Injectable({
@@ -17,14 +18,9 @@ export class ChatService {
 
   setupSocketConnection() {
     this.socket = io(IO_URL, {reconnection: true})
-  }
-
-  subscrideToMessages(cb:any) {
-    if(!this.socket) return;
-    this.socket.on('message', (msg:string, name:string )=> {
-      return {msg, name};
-    })
-
+    if(!this.socket) {
+      console.log("Connection Failed");
+    }
   }
 
   sendMessage(msg: string, name:string) {

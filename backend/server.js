@@ -31,6 +31,7 @@ io.on('connect', (socket) => {
             "name":name,
             "message":message
         }
+        console.log(chat);
         io.emit('incomming', chat);
     })
 
