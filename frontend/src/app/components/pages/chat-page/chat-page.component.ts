@@ -35,24 +35,25 @@ export class ChatPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatService.setupSocketConnection();
-    this.subscribeToMessage()
+    this.subscribeToMessage();
+    this.changeList(this.messageListGeneral);
   }
 
   subscribeToMessage() {
     this.chatService.socket.on("incomming", (msg:Chats) => {
       if(msg.room=="Stars") {
         this.messageListStar = [...this.messageListStar, msg]
-        this.changeList(this.messageListStar);
+        this.changeRoom(this.chatRoom);
       }
 
       if(msg.room=="General") {
         this.messageListGeneral = [...this.messageListGeneral, msg]
-        this.changeList(this.messageListGeneral);
+        this.changeRoom(this.chatRoom);
       }
 
       if(msg.room=="Rockets") {
         this.messageListRockets = [...this.messageListRockets, msg]
-        this.changeList(this.messageListRockets);
+        this.changeRoom(this.chatRoom);
       }
 
       //this.messageList = [...this.messageList, msg];
@@ -81,6 +82,7 @@ export class ChatPageComponent implements OnInit {
   }
 
   changeList(newlist:Chats[]) {
+    console.log("in change list");
     this.messageList = newlist;
   }
 }
