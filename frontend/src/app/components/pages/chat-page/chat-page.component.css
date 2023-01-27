@@ -76,19 +76,19 @@ input {
   font-size: 1.1rem;
   border-radius: 5rem;
   /*border-radius: 0 5rem 5rem 0;*/
-  border: 2px solid purple;
+  border: 2px solid white;
   background-color: #002626;
   color: white;
   opacity: 0.8;
   outline: none;
-  transition: 0.5s;
+  transition: 0.2s;
   margin-top: 3rem;
 }
 
-div button:hover{
+.send:hover{
   opacity: 1;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .roomName {
@@ -106,10 +106,19 @@ div button:hover{
   font-family: 'poppins', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  background-color: #114870;
+  background-color: #114870; /*#114870*/
   border-radius: 2rem;
   color: white;
   border: .2rem solid grey;
+  transition: 0.3s;
 }
+
+.selectChatsBtn:hover {
+  background-color: #0b2e47;
+  transition: 0.3s;
+  border-radius: 1rem;
+}
+
+
 
 

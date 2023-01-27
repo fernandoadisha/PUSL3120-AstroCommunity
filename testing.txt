@@ -1,0 +1,27 @@
+How to use the unit testing
+
+To unit test the mongodb get funcitons we can use the findOne() method and if it works mean test is a success
+
+Can make sure every router works
+
+Test business logic and security tests
+
+functional testing
+Test if the API functions correcly
+
+---------------------------------------------------------------------------------------------------
+
+Rest of the main things left to test?------
+
+can test auth mid, if it funcitons properly
+
+can test all the aavailable routes
+ if api output proper status code?
+ if api output proper body (JSON Values so on)
+ check header (not sure how to deal with header)
+ Also consider time it gets to be tested
+
+Test with valid inputs, test with invalid inputs, if possible do perofrmence testing
+Also test like adding a already existing values and trying to get non existing values
+
+

@@ -82,7 +82,6 @@ export class ChatPageComponent implements OnInit {
   }
 
   changeList(newlist:Chats[]) {
-    console.log("in change list");
     this.messageList = newlist;
   }
 }

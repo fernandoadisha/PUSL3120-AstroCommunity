@@ -12,7 +12,8 @@ div{
 input {
   border-radius: 1.2rem 0 0 1.2rem;
   font-family: 'poppins', sans-serif;
-  border: none;
+  /*border: none;*/
+  border: #04043e solid 2px;
   height: 3rem;
   width: 30rem;
   background-color: #f1f1f1;
@@ -31,15 +32,18 @@ div button {
   font-size: 1.1rem;
   border-radius: 0 1.2rem 1.2rem 0;
   border: none;
-  background-color: #e72929;
+  background-color: #04043e;
   color: white;
   opacity: 0.8;
   outline: none;
   transition: 0.5s;
 }
 
-div button:hover{
+
+div button:hover {
   opacity: 1;
+  border-radius: 0 3rem 3rem 0;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.1s;
 }
+
