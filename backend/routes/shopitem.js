@@ -20,7 +20,7 @@ router.get("/test", (req,res) => {
 router.get("/api/items", async(request,response) => {
     const items = await shopItem.find();
     response.send(items);
-    console.log(getSampleItems());
+    //console.log(getSampleItems());
 })
 
 // getting items by search term

@@ -10,6 +10,8 @@ functional testing
 Test if the API functions correcly
 
 ---------------------------------------------------------------------------------------------------
+jest --watchAll --detectOpenHandles
+---------------------------------------------------------------------------------------------------
 
 Rest of the main things left to test?------
 
