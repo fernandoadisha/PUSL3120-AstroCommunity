@@ -23,6 +23,8 @@ can test all the aavailable routes
  check header (not sure how to deal with header)
  Also consider time it gets to be tested
 
+ can run a test to add item if it works and then remove it
+
 Test with valid inputs, test with invalid inputs, if possible do perofrmence testing
 Also test like adding a already existing values and trying to get non existing values
 
