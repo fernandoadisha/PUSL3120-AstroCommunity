@@ -33,6 +33,5 @@ jobs:
     - run: npm run build --if-present
       working-directory: backend
       
-    #pausing for now because project is tested using local host connection
-    #- run: npm test --if-present
-    #  working-directory: backend
+    - run: npm test --if-present
+      working-directory: backend
