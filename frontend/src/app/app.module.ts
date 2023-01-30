@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -15,7 +15,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
@@ -36,6 +36,7 @@ import { AddItemsPageComponent } from './components/pages/add-items-page/add-ite
 import { ChatPageComponent } from './components/pages/chat-page/chat-page.component';
 import { NewsComponent } from './components/pages/news/news.component';
 import { ChatService } from './services/chat.service';
+import { ActivatedRoute } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,8 @@ import { ChatService } from './services/chat.service';
     NewsComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -83,6 +86,12 @@ import { ChatService } from './services/chat.service';
     ChatService,
     {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide:HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ],
+  exports: [
+    LoadingComponent
   ],
   bootstrap: [AppComponent]
 })

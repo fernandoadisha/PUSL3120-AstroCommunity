@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,5 @@ export class AppComponent {
   title = 'frontend';
 
   constructor (private router: Router) {
-
   }
 }

@@ -4,7 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/shared/models/Order';
 
-//window.paypal
+//window.paypal;
 declare var paypal: any;
 
 @Component({

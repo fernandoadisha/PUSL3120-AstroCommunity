@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AbstractControl, FormControl } from '@angular/forms';
 
 import { InputValidationComponent } from './input-validation.component';
 
@@ -14,6 +15,7 @@ describe('InputValidationComponent', () => {
 
     fixture = TestBed.createComponent(InputValidationComponent);
     component = fixture.componentInstance;
+    component.controls = new FormControl(); // Made the changes in here
     fixture.detectChanges();
   });
 

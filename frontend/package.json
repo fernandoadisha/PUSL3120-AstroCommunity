@@ -25,6 +25,7 @@
     "ng-bootstrap": "^1.6.3",
     "ng-starrating": "^1.0.20",
     "ngx-toastr": "^16.0.2",
+    "paypal-checkout": "^4.0.336",
     "rxjs": "~7.5.0",
     "socket.io": "^4.5.4",
     "socket.io-client": "^4.5.4",
