@@ -27,7 +27,7 @@ app.use(cors({
 }));
 
 // Inititating connection with MongoDB
-mongoose.connect(process.env.MONGO_URI, () => { // originally it "mongoUrl" was used here as first paramater
+mongoose.connect(process.env.MONGO_URI, async () => { // originally it "mongoUrl" was used here as first paramater
     console.log("Connected to DB");
 }), e => console.error(e);
 
