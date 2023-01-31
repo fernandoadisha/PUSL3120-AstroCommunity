@@ -12,11 +12,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,11 +27,33 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: backend/package-lock.json
+      
     - run: npm ci
       working-directory: backend
       
-    - run: npm run build --if-present
+    - run: npm install
       working-directory: backend
       
+    - run: npm install express
+      working-directory: backend
+    
+    - run: npm install jest
+      working-directory: backend
+    
+    - run: npm install mongoose
+      working-directory: backend
+    
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo MONGO_URI = "mongodb+srv://adhisha:AstroPass@astrocommnity.p5lwjpk.mongodb.net/astrocommunity?retryWrites=true&w=majority" >> .env
+        echo JWT_SECRET = "test">> .env
+        cat .env
+      
+    - run: npm run build --if-present
+      working-directory: backend
+    
     - run: npm test --if-present
       working-directory: backend
+      
+    
