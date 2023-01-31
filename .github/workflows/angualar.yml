@@ -33,7 +33,7 @@ jobs:
     - run: npm install --force
       working-directory: frontend
       
-    - run: npm test
+    - run: npm test --watch=false
       working-directory: frontend
     
     - run: npm run build --if-present
