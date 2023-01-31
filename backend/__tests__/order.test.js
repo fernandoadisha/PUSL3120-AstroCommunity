@@ -1,12 +1,18 @@
 const app = require('../app');   
 const request = require("supertest");
 const mongoose = require('mongoose');
+const connectMongo = require('../mongoconnect');
+
+beforeAll(() => {
+    connectMongo();
+});
 
 afterAll(done => {
-    // Closing the DB connection allows Jest to exit successfully.
-    mongoose.connection.close()
-    done()
+    mongoose.connection.close();
+    console.log("After all is working after all");
+    done();
 })
+
 
 describe("Testing if return full values", ()=> {
     test("Test/ if unauthorised access can be get order history", async() => {
@@ -16,3 +22,7 @@ describe("Testing if return full values", ()=> {
     });
     
 });
+
+
+
+  

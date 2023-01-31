@@ -46,7 +46,7 @@ export class PaypalButtonComponent implements OnInit {
               next: (orderId) => {
                 this.cartService.clearCart();
                 this.router.navigateByUrl('/track/' + orderId);
-                alert("Payment Saved Successfully");
+                //alert("Payment Saved Successfully");
               },
               error: (error) => {
                 alert("Payment Save Failed")

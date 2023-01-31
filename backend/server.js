@@ -4,6 +4,9 @@ const cors = require('cors')
 const { Server } = require('socket.io');
 // const { Socket } = require("socket.io-client");
 const http = require("http").createServer(app);
+const connectMongo = require('./mongoconnect')
+
+connectMongo();
 
 
 // initiating the app

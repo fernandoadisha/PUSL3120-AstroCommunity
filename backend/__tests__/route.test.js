@@ -1,5 +1,17 @@
 const app = require('../app');   
 const request = require("supertest");
+const mongoose = require('mongoose');
+const connectMongo = require('../mongoconnect');
+
+beforeAll(() => {
+    connectMongo();
+});
+
+afterAll(done => {
+    mongoose.connection.close();
+    console.log("After all is working after all");
+    done();
+})
 
 describe("Test all the routes", () => {
   test("Testing shopitems", async() => {

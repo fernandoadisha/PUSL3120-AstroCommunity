@@ -1,7 +1,6 @@
 //importing required libraries
 const dotenv = require('dotenv')
 const mongoose = require("mongoose"); // importing mongoose library
-// const mongoUrl = "mongodb://0.0.0.0:27017/testdb"; //URL for mongodb 
 const express = require("express"); // importing express library
 const app = express(); // initiating express application
 const http = require("http").Server(app); //importing http module
@@ -26,10 +25,12 @@ app.use(cors({
     origin:["http://localhost:4200"]
 }));
 
+/*
 // Inititating connection with MongoDB
 mongoose.connect(process.env.MONGO_URI, async () => { // originally it "mongoUrl" was used here as first paramater
     console.log("Connected to DB");
 }), e => console.error(e);
+*/
 
 let port = 9000;
 
