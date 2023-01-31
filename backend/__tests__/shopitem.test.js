@@ -5,7 +5,14 @@ const connectMongo = require('../mongoconnect');
 
 beforeAll(async() => {
     await connectMongo();
+    console.log(mongoose.connection.readyState);
 });
+
+afterAll(done => {
+  mongoose.connection.close();
+  console.log(mongoose.connection.readyState);
+  done();
+})
 
 
 describe("Testing if return full values", ()=> {
@@ -70,6 +77,36 @@ describe("Test/ Getting values by search term and tags", () => {
   
 });
 
+/*********************************** */
+
+describe("Test all the routes", () => {
+  test("Testing shopitems", async() => {
+    const response = await request(app).get("/shopitem/test")
+      expect(response.statusCode).toBe(200);
+  });
+
+  test("Testing if orders send unautheorised status", async() => {
+    const response = await request(app).get("/order")
+      expect(response.statusCode).toBe(401);
+  });
+
+  test("Testing shopitems", async() => {
+    const response = await request(app).get("/user/test")
+      expect(response.statusCode).toBe(200);
+  });
+
+});
+
+/************************************************* */
+
+describe("Testing if return full values", ()=> {
+  test("Test/ if unauthorised access can be get order history", async() => {
+      const response = await request(app).get("/order/newOrderForCurrentUser")
+      expect(response.statusCode).toBe(401);
+      expect(response.body.length).toBe(undefined);
+  });
+  
+});
 
 
 
