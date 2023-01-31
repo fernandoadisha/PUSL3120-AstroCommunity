@@ -26,9 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        
-    - run: npm install @angular/cli
-      working-directory: frontend
     
     - run: npm ci
       working-directory: frontend
