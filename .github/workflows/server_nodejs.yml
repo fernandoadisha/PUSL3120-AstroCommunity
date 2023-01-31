@@ -36,6 +36,12 @@ jobs:
       
     - run: npm install express
       working-directory: backend
+    
+    - run: npm install jest
+      working-directory: backend
+    
+    - run: npm install mongoose
+      working-directory: backend
       
     - run: npm run build --if-present
       working-directory: backend
