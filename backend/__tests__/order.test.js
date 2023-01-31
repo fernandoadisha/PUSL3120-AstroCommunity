@@ -3,12 +3,8 @@ const request = require("supertest");
 const mongoose = require('mongoose');
 const connectMongo = require('../mongoconnect');
 
-beforeAll(() => {
-    connectMongo();
-});
-
 afterAll(done => {
-    mongoose.connection.close();
+    mongoose.disconnect();
     console.log("After all is working after all");
     done();
 })
