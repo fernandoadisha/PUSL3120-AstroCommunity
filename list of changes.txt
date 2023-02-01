@@ -1,5 +1,0 @@
-In the "item component" i instead of going for "tags/tag" route I changed it to "search/tag" 
-
-instead of using BAD_REQUEST I use 400 as error code for it
-
-Instead of using enum, I use string in ordermodel.js

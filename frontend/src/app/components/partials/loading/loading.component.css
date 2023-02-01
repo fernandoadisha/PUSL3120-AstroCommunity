@@ -24,6 +24,10 @@ img{
 }
 
 h1{
-color: brown;
-text-transform: lowercase;
+  color: white;
+}
+
+.loadingcom {
+  width: 20%;
+  height: 20%;
 }

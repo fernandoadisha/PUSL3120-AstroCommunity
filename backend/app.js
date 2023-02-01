@@ -44,9 +44,9 @@ app.get("/", (request,response) => {
 const itemRouter = require('./routes/items');
 app.use('/items', itemRouter); 
 
-// connecting user touter to server.js
+// connecting user router to server.js
 const userRouter = require('./routes/user');
-const { sample_items } = require("./src/data");
+// const { sample_items } = require("./src/data");
 app.use('/user', userRouter);
 
 const shopItemRouter = require('./routes/shopitem');
