@@ -22,7 +22,7 @@ a:hover {
   transition: 0.3s;
 }
 
-.container {
+.containers {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
